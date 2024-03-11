@@ -9,6 +9,7 @@
 int encoderAprev;
 int encoderAcurr;
 int contador=0;
+int valor=0;
 
 void setup() {
 Serial.begin(9600) //comunicación
@@ -16,11 +17,12 @@ delay(500)
 pinMode(encoderA, INPUT);
 pinMode(encoderB, INPUT);
 //leer estado inicial 
-encoderAprev= digitalRead(encoderA);
+encoderAprev=100;
 }
 
 void loop() {
   encoderAcurr= digitalRead(encoderA);
+  
   if(encoderAcurr!=encoderAprev && encoderAcurr==HIGH)
   {
     if(digitalRead(encoderB)==HIGH)
